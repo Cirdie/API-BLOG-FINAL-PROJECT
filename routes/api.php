@@ -10,6 +10,8 @@ use App\Http\Controllers\API\AdminPostController;
 use App\Http\Controllers\API\SavedPostController;
 
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Authentication Routes
@@ -34,13 +36,11 @@ Route::get('/posts/approved', [UserPostController::class, 'approvedPosts']);
 |--------------------------------------------------------------------------
 */
 Route::middleware('auth:sanctum')->group(function () {
-
     /*
     |----------------------------------------------------------------------
     | User Routes (Authenticated)
     |----------------------------------------------------------------------
     */
-
     // Profile
     Route::get('/profile', [UserController::class, 'profile']);
     Route::post('/logout', [UserController::class, 'logout']);
@@ -67,11 +67,12 @@ Route::middleware('auth:sanctum')->group(function () {
     |----------------------------------------------------------------------
     | Admin Routes (Authenticated, Role-Checked in Controllers)
     |----------------------------------------------------------------------
-    */    Route::post('/topics', action: [TopicController::class, 'store']);
+    */
 
+    // Topics
+    Route::post('/topics', action: [TopicController::class, 'store']);
 
-
-    // Feedback (admin access only)
+    // Feedback 
     Route::get('/feedback', [FeedbackController::class, 'index']);
 
     // Admin Post Management
