@@ -11,8 +11,9 @@ class Feedback extends Model
 
     protected $fillable = ['User_Id', 'message'];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'User_Id', 'User_Id');
-    }
+  public function user()
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
+
 }
